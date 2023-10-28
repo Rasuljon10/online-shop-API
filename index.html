@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Online shop</title>
+  </head>
+  <body>
+    <div id="loading" class="loading">
+          <img src="./media/gifs/ZKZg.gif" alt="...">
+      </div>
+    <header>
+      <nav>
+        <div class="navItem1">
+          <div class="navLogo" onclick="landingPageActivity()">
+            <img src="./media/imgs/калибри 1.png" alt="..." />
+          </div>
+          <div class="navKatalogBtn">
+            <button>Katalog</button>
+          </div>
+          <div class="navSearchItem">
+            <button onclick="searchProd" class="searchBtn">
+              <i class="fa-solid fa-search"></i>
+            </button>
+            <input
+              type="text"
+              name="search"
+              id="searchInp"
+              onkeyup="serachProd()"
+              placeholder="Search..."
+            />
+          </div>
+        </div>
+        <div class="navItem2">
+          <ul class="navMenu">
+            <li onclick="landingPageActivity()">
+              <a href="#landingPage">Home</a>
+            </li>
+            <li>
+              <a href="#">Delivery</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+            <li>
+              <a href="#">Gallery</a>
+            </li>
+            <li onclick="loginPageActivity()">
+              <a href="#loginPage">Login</a>
+            </li>
+            <button class="cartIcon" onclick="showCart()">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </button>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main id="landingPage" class="landingPage activePage">
+      <section class="heroSec">
+        <div class="heroWrap">
+          <div class="heroTitle">
+            <h1>On sale</h1>
+            <h2>cheers to Novogo!</h2>
+          </div>
+          <div class="heroBtns">
+            <button class="actionBtn heroBtn">All action</button>
+            <button class="detailsBtn heroBtn">More details</button>
+          </div>
+        </div>
+      </section>
+      <section class="productWrap">
+        <div class="secTitle">
+          <h2 class="titleSize">Popular categories</h2>
+        </div>
+        <div id="productList"></div>
+      </section>
+      <section class="discount">
+        <div class="discountWrap">
+          <div class="secImg">
+            <img
+              src="https://www.svgrepo.com/show/311533/rain-jacket.svg"
+              alt="..."
+            />
+          </div>
+          <div class="secInfo">
+            <div class="secTitle">
+              <h2>Discount 5%</h2>
+              <h3>for the first order</h3>
+            </div>
+            <div class="discountForm">
+              <input
+                type="tel"
+                name="discountNum"
+                id="discountNum"
+                placeholder="+9"
+              />
+              <button class="getDiscount">Get a Discoutn</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <main id="infoPage" class="infoPage deactivePage">
+      <section class="infoSec">
+        <div class="infoWrap">
+          <div class="infoTitle">
+            <h2 class="titleSize">Full product information</h2>
+          </div>
+          <div id="prodInfo">
+            <!-- <div class="prodImg">
+              <img
+                src="./media/245172435_120758847008175_9018866459178403890_n 1.png"
+                alt="..."
+              />
+            </div>
+            <div class="prodAboutAll">
+              <div class="prodAllPrice">
+                <div class="prices">
+                  <h2>950 <span class="dollarSize">$</span></h2>
+                  <del>1000 <span class="proSize">$</span></del>
+                  <p class="discountNum">-5<span class="proSize">%</span></p>
+                </div>
+                <div class="prodBuyBtn">
+                  <button onclick="addCart()">Add to cart</button>
+                </div>
+              </div>
+              <hr />
+              <div class="prodDescription">
+                <div class="descriptionTitle">
+                  <h3>Compound:</h3>
+                </div>
+                <div class="descriptionText">
+                  <p>${description}</p>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <main id="loginPage" class="loginPage deactivePage">
+      <section class="login">
+        <div class="loginWrap">
+          <div class="login">
+            <div class="title">
+              <h2>Sign in</h2>
+            </div>
+            <div class="text">
+              <p>Stay updated on your profissional world</p>
+            </div>
+            <div class="registratsiya">
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Username"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                id="userEmail"
+                placeholder="Email"
+                required
+              />
+              <input
+                type="password"
+                name="password"
+                id="userPassword"
+                placeholder="Password"
+                required
+              />
+              <p class="forgot blue">Forgot password?</p>
+              <button class="loginBtn" onclick="addUsers()">Sign in</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <main id="cartPage" class="cartPage deactivePage">
+      <section class="cartSec">
+        <div class="cartWrap">
+          <div class="cartTitle">
+            <h2 class="titleSize">Shopping products</h2>
+          </div>
+          <div class="buyProdWrap">
+            <div class="buyProd" id="buyProducts">
+            </div>
+            <div class="totalInfo">
+              <div class="wrap">
+                <div class="title">
+                  <h2>Order details</h2>
+                </div>
+                <div class="totalQuantity">
+                  <p>Quantity</p>
+                  <h3 id="totalQuantity">3</h3>
+                </div>
+                <div class="totalPrice">
+                  <p>Total price</p>
+                  <h2 id="totalPrice">285 $</h2>
+                </div>
+                <div class="form">
+                  <input
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    placeholder="Enter your phone number"
+                  />
+                  <button>Pervous</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><h3>You haven't bought a product yet</h3>
+    </main>
+    <footer>
+      <div class="footerWrap">
+        <div class="item1">
+          <div class="conTitle">
+            <h2 class="titleSize">Contact</h2>
+          </div>
+          <div class="number">
+            <h3>+998 90 538 32 70</h3>
+          </div>
+          <div class="messengers">
+            <div class="instagram">
+              <div class="wrapMes">
+                <a href="https://www.instagram.com/1rasulc1k">
+                  <i class="fa-brands fa-instagram iconSize"></i>
+                </a>
+                <p class="mesTitle">Instagram</p>
+              </div>
+            </div>
+            <div class="gitHub">
+              <div class="wrapMes">
+                <a href="https://github.com/Rasuljon07">
+                  <i class="fa-brands fa-github iconSize"></i>
+                </a>
+                <p class="mesTitle">Git Hub</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item2">
+          <div class="addrTitle">
+            <h2 class="titleSize">Address</h2>
+          </div>
+          <div class="location">
+            <h3>
+              Jizzax <br />
+              Hamid Olimjon passage, 11
+            </h3>
+          </div>
+          <div class="operatingMode">
+            <p>Operting mode</p>
+            <h3>Around the clock</h3>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./app.js"></script>
+  </body>
+</html>
